@@ -1,4 +1,9 @@
 /* Style appliqué à l'ensemble du fichier HTML */
+html {
+    height: 15vh;
+    width: 80vh;
+}
+
 * {
     font-family: 'Handjet', cursive;
 }
@@ -85,3 +90,4 @@ input:checked + .slider:before {
     width: 150px;
     height: 150px;
 }
+/* Fin du style de l'image */

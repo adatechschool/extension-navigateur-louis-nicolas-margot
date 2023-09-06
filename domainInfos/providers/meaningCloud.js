@@ -1,5 +1,5 @@
 // utilitaire de requêtes API
-import axios from "axios";
+import axios from "axios"
 
 // "classe", càd une super-fonction/objet qui a ses propres méthodes
 class MCInfos {
@@ -36,6 +36,6 @@ class MCInfos {
     }
 }
 
-export default MCInfos
+export default MCInfos;
 
 

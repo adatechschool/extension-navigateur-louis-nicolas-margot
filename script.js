@@ -1,8 +1,12 @@
 //récupére tout ce qu'il faut pour faire l'appel d'api
 import MCInfos from './domainInfos/providers/meaningCloud.js'
-
 // récupére ma clé personnelle d'API
 import mCkey from './domainInfos/providers/key.js'
+
+//chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  //  const currentUrl = tabs[0].url;
+  //  document.getElementById('urlDisplay').textContent = currentUrl;
+// });
 
 const categories = {}
 //crée un objet qui pourra faire l'appel d'API à partir de l'url qu'on lui donne
@@ -18,3 +22,6 @@ getCategories()
 
 
 
+
+
+  
