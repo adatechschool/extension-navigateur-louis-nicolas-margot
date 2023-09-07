@@ -21,14 +21,15 @@ async function getPageCategories(url, key, lang) {
     // lance l'appel d'API et attends la réponse
     return infos.getMCInfos()
 }
-// chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-//     if (changeInfo.status == 'complete') {
-//         let currentTabUrl = tab.url
-//         console.log(currentTabUrl)
-//         let currentPageCategories = getPageCategories(currentTabUrl, mcKey, 'fr')
-//         console.log(currentPageCategories)
-//     }
-// })
+
+chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
+    if (changeInfo.status == 'complete') {
+        let currentTabUrl = tab.url
+        console.log(currentTabUrl)
+        let currentPageCategories = getPageCategories(currentTabUrl, mcKey, 'fr')
+        console.log(currentPageCategories)
+    }
+})
 getPageCategories('https://www.jeuxvideo.com/news/1795111/starfield-pc-est-offert-si-vous-achetez-une-souris-dans-cette-grande-enseigne.htm', mcKey, 'fr')
 
 
