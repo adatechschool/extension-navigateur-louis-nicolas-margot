@@ -617,7 +617,7 @@
 "fr" : "DEPRECATED in V 14 - term moved to 04018001 ",
 "it" : "ANNULLATO in V 14 - Termine spostato al numero 04018001 ",
 "es" : "DEPRECATED in V 14 - term moved to 04018001 ",
-"en-GB" : "DEPRECATED in V 14 - term moved to 04018001 ",
+"enGb" : "DEPRECATED in V 14 - term moved to 04018001 ",
 "de" : "Begriff nach 04018001 verschoben "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/01018000"
@@ -2777,7 +2777,7 @@
 "note" : {
 "it" : "nessuno ",
 "fr" : "Explanation changed in V 15 ",
-"en-GB" : "Explanation changed in V 15 ",
+"enGb" : "Explanation changed in V 15 ",
 "es" : "Explanation changed in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04004000"
@@ -2850,7 +2850,7 @@
 "note" : {
 "es" : "In Japan, government publishes lists of standard land prices every year as an economic barometer and Newspapers take up with a lot of space. ",
 "it" : "nessuno ",
-"en-GB" : "In Japan, government publishes lists of standard land prices every year as an economic barometer and Newspapers take up with a lot of space. ",
+"enGb" : "In Japan, government publishes lists of standard land prices every year as an economic barometer and Newspapers take up with a lot of space. ",
 "fr" : "In Japan, government publishes lists of standard land prices every year as an economic barometer and Newspapers take up with a lot of space. "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04004000"
@@ -4708,7 +4708,7 @@
 "it" : "nessuno ",
 "es" : "Name changed, Explanation added in V 15 ",
 "fr" : "Name changed, Explanation added in V 15 ",
-"en-GB" : "Name changed, Explanation added in V 15 "},
+"enGb" : "Name changed, Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04000000"
 ],
@@ -4732,7 +4732,7 @@
 "note" : {
 "fr" : "Explanation added in V 15 ",
 "it" : "nessuno ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "es" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
@@ -4753,7 +4753,7 @@
 "fr" : "Compagnies qui produisent des composants pour les automobiles "},
 "note" : {
 "es" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "it" : "nessuno ",
 "fr" : "Explanation added in V 15 "},
 "broader" : [
@@ -4776,7 +4776,7 @@
 "note" : {
 "it" : "nessuno ",
 "es" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "fr" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
@@ -4799,7 +4799,7 @@
 "fr" : "Explanation added in V 15 ",
 "it" : "nessuno ",
 "es" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 "},
+"enGb" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
 ],
@@ -4820,7 +4820,7 @@
 "note" : {
 "it" : "nessuno ",
 "fr" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "es" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
@@ -4842,7 +4842,7 @@
 "note" : {
 "es" : "Explanation added in V 15 ",
 "fr" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "it" : "nessuno "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
@@ -4865,7 +4865,7 @@
 "it" : "nessuno ",
 "es" : "Explanation added in V 15 ",
 "fr" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 "},
+"enGb" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
 ],
@@ -4885,7 +4885,7 @@
 "fr" : "Construction de bateaux, navires, sous-marins "},
 "note" : {
 "es" : "Explanation added in V 15 ",
-"en-GB" : "Explanation added in V 15 ",
+"enGb" : "Explanation added in V 15 ",
 "fr" : "Explanation added in V 15 ",
 "it" : "nessuno "},
 "broader" : [
@@ -4909,7 +4909,7 @@
 "fr" : "Explanation added in V 15 ",
 "es" : "Explanation added in V 15 ",
 "it" : "nessuno ",
-"en-GB" : "Explanation added in V 15 "},
+"enGb" : "Explanation added in V 15 "},
 "broader" : [
 "http://cv.iptc.org/newscodes/subjectcode/04011000"
 ],
@@ -6425,7 +6425,7 @@
 "fr" : "Système ou organisation légalement établie "},
 "note" : {
 "it" : "era 01018001 ",
-"en-GB" : "code changed, was 01018001 ",
+"enGb" : "code changed, was 01018001 ",
 "es" : "was 01018001 ",
 "fr" : "was 01018001 "},
 "broader" : [
@@ -10590,7 +10590,7 @@
 "definition" : {
 "fr" : "Pacte, entente, entre plusieurs partis ou puissances "},
 "note" : {
-"en-GB" : "moved to SubjectMatter 11002 in V16 ",
+"enGb" : "moved to SubjectMatter 11002 in V16 ",
 "fr" : "DEPRECATED in V 16, split to SubjectMatters 11027 and 11028 ",
 "de" : "Hier gelöscht, unter 11002000 verschoben ",
 "it" : "ANNULLATO e spostato in SubjectMatter 11002 in V16 "},
@@ -11257,7 +11257,7 @@
 "note" : {
 "es" : "moved to 12000001/SubjectQualifier ",
 "fr" : "SubjectMatter deprecated, SubjectDetails moved to other SubjectMatter ",
-"en-GB" : "moved to 12000001/SubjectQualifier ",
+"enGb" : "moved to 12000001/SubjectQualifier ",
 "it" : "spostato in 12000001 SubjectQualifier ",
 "de" : "Verschoben als 12000001/SubjectQualifier "},
 "broader" : [
@@ -11282,7 +11282,7 @@
 "definition" : {
 "fr" : "Tout endroit où un groupe de croyants peut pratiquer ses rites religieux : mosquée, église, maison ou tente "},
 "note" : {
-"en-GB" : "moved to 12000002/SubjectQualifier ",
+"enGb" : "moved to 12000002/SubjectQualifier ",
 "de" : "Verschoben als 12000002/SubjectQualifier ",
 "es" : "moved to 12000002/SubjectQualifier ",
 "fr" : "moved to 12009000 ",
@@ -11409,7 +11409,7 @@
 "fr" : "Les disciples de Jésus Christ "},
 "note" : {
 "it" : "spostato da 12004001 ",
-"en-GB" : "moved from 12004001 ",
+"enGb" : "moved from 12004001 ",
 "de" : "Hierher verschoben von 12004001 ",
 "es" : "moved from 12004001 ",
 "fr" : "moved to 12000002/SubjectQualifier "},
