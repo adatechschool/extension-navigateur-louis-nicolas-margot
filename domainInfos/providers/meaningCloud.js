@@ -28,6 +28,6 @@ class MCInfos {
     }
 }
 
-export default MCInfos
+export default MCInfos;
 
 

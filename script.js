@@ -1,6 +1,5 @@
 //récupére tout ce qu'il faut pour faire l'appel d'api
 import MCInfos from './domainInfos/providers/meaningCloud.js'
-
 // récupére ma clé personnelle d'API
 import mcKey from './domainInfos/providers/key.js'
 
@@ -36,3 +35,4 @@ getPageCategories('https://www.jeuxvideo.com/news/1795111/starfield-pc-est-offer
 
 
 
+  

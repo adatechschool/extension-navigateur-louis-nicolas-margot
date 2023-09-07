@@ -2,7 +2,7 @@
   "name": "extnav",
   "type": "module",
   "version": "0.1",
-  "main": "index.js",
+  "main": "meaningCloud.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.48.0", 
     "prettier": "^3.0.3"
   },
   "devDependencies": {},
