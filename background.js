@@ -31,7 +31,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         console.log(currentPageCategories)
     }
 })
-getPageCategories('https://www.jeuxvideo.com/news/1795111/starfield-pc-est-offert-si-vous-achetez-une-souris-dans-cette-grande-enseigne.htm', mcKey, 'fr')
 
 
 

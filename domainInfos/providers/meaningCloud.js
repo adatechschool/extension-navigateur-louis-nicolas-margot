@@ -22,7 +22,7 @@ class MCInfos {
         // on 'return' ici pour éviter des problèmes de async dans background.js (c'est ça que background.js récupère quand on fait 'infos.getMCinfos()')
         fetch('https://api.meaningcloud.com/class-2.0', { method: 'post', body: this.form, redirect: 'follow' })
             .then((response) => {
-                return response.json()
+                return response
             })
             .then((responseJSON) => {
                 console.log(responseJSON)
