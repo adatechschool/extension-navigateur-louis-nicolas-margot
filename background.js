@@ -22,6 +22,7 @@ async function getPageCategories(url, key, lang) {
     return infos.getMCInfos()
 }
 
+// eslint-disable-next-line no-undef
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
         let currentTabUrl = tab.url
