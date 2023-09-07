@@ -1,10 +1,16 @@
 {
-    "manifest_version": 3,
-    "name": "Productivity Pet",
-    "description": "Hello World",
-    "version": "1.0.0",
-    "action": {
-        "default_icon": "images/cat_icon.png",
-        "default_popup": "index.html"
-    }
+  "manifest_version": 3,
+  "name": "Productivity Pet",
+  "description": "Hello World",
+  "version": "1.0.0",
+  "permissions": ["tabs"],
+  "action": {
+    "default_icon": "images/cat_icon.png",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "script.js",
+    "type": "module"
+  },
+  "content_scripts": []
 }

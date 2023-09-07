@@ -1,1 +1,1 @@
-export const mCkey = 'insert key here'
+export const mcKey = 'insert key here'
