@@ -1,5 +1,5 @@
 // utilitaire de requêtes API
-
+import socialMediaList from '../socialMediaDomains/socialMediaList.js'
 // "classe", càd une super-fonction/objet qui a ses propres méthodes
 class MCInfos {
     // le constructeur prends les données qu'on lui file en paramètre
@@ -8,13 +8,19 @@ class MCInfos {
         this.key = mcKey
         this.lang = lang
 
+        if (socialMediaList.some(element => this.url.includes(element))) {
+            this.model = 'SocialMedia_en'
+        } else {
+            this.model = `IPTC_${this.lang}`
+        }
+
         // l'API exige des données en format 'formulaire', tout ce qui suit remplace enfait les headers d'une requête classique
         this.form = new FormData();
         this.form.append('url', this.url);
         this.form.append('key', this.key);
         this.form.append('verbose', 'y');
         this.form.append('expand_hierarchy', 'p')
-        this.form.append('model', `IPTC_${this.lang}`);
+        this.form.append('model', this.model)
     }
 
     // méthode pour lancer la requête
