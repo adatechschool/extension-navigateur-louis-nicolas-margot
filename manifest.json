@@ -12,10 +12,5 @@
     "default_icon": "images/cat_icon.png",
     "default_popup": "index.html"
   },
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["domWatcher.js"]
-    }
-  ]
+  "content_scripts": []
 }

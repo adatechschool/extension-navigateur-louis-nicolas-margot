@@ -13,28 +13,14 @@ const categories = {
 console.log(categories)
 
 async function getPageCategories(url, key, lang) {
-    console.log('woooh yeah')
     //crée un objet qui pourra faire l'appel d'API à partir de l'url qu'on lui donne
     let infos = new MCInfos(url, key, lang)
     // lance l'appel d'API et attends la réponse
-    let cats = infos.getMCInfos()
+    let cats = await infos.getMCInfos()
     console.log(cats)
     return cats
 }
 
-
-function debounce(func, timeout) {
-    let timer;
-    return (...args) => {
-        if (!timer) {
-            func.apply(this, args);
-        }
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            timer = undefined;
-        }, timeout);
-    };
-}
 // define what element should be observed by the observer
 // and what types of mutations trigger the callback
 
@@ -47,17 +33,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         let currentTabUrl = tab.url
         console.log(currentTabUrl)
         getPageCategories(currentTabUrl, mcKey, lang)
-        // eslint-disable-next-line no-undef
-        chrome.runtime.onConnect.addListener(function (port) {
-            console.assert(port.name === "domChangeNotification");
-            port.onMessage.addListener(function (msg) {
-                if (msg.alert === 'DOM change') {
-                    port.postMessage({ acknowledgment: "event registered" });
-                    console.log(msg.alert)
-                }
-
-            });
-        });
     }
 })
 

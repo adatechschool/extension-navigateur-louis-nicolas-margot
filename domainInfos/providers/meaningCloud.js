@@ -1,5 +1,3 @@
-// utilitaire de requêtes API
-import socialMediaList from '../socialMediaDomains/socialMediaList.js'
 // "classe", càd une super-fonction/objet qui a ses propres méthodes
 class MCInfos {
     // le constructeur prends les données qu'on lui file en paramètre
@@ -7,12 +5,7 @@ class MCInfos {
         this.url = urlOfPage
         this.key = mcKey
         this.lang = lang
-
-        if (socialMediaList.some(element => this.url.includes(element))) {
-            this.model = 'SocialMedia_en'
-        } else {
-            this.model = `IPTC_${this.lang}`
-        }
+        this.model = `IPTC_${this.lang}`
 
         // l'API exige des données en format 'formulaire', tout ce qui suit remplace enfait les headers d'une requête classique
         this.form = new FormData();
@@ -25,13 +18,12 @@ class MCInfos {
 
     // méthode pour lancer la requête
     getMCInfos() {
-        // on 'return' ici pour éviter des problèmes de async dans background.js (c'est ça que background.js récupère quand on fait 'infos.getMCinfos()')
-        fetch('https://api.meaningcloud.com/class-2.0', { method: 'post', body: this.form, redirect: 'follow' })
+        return fetch('https://api.meaningcloud.com/class-2.0', { method: 'post', body: this.form, redirect: 'follow' })
             .then((response) => {
                 return response.json()
             })
             .then((responseJSON) => {
-                console.log(responseJSON)
+                return responseJSON
             })
     }
 }
