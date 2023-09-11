@@ -8,8 +8,24 @@ import catFr from './domainInfos/categoriesLists/catFr.js'
 
 const categories = {
     categoriesEn: catEn.conceptSet.slice(0, 16).map(item => item.prefLabel),
-    categoriesFr: catFr.conceptSet.slice(0, 16).map(item => item.prefLabel)
+    categoriesFr: parseCatFr()
 }
+
+function parseCatFr() {
+    let arr = []
+    for (let i = 1; i < 10; i++) {
+        arr.push(`0${i}000000`)
+    }
+    for (let i = 10; i < 17; i++) {
+        arr.push(`${i}000000`)
+    }
+    let filtered = catFr.conceptSet.filter(item =>
+        arr.some(el => item.qcode.includes(el))
+    )
+    console.log(filtered)
+    return filtered.map(item => item.prefLabel)
+}
+
 console.log(categories)
 
 async function getPageCategories(url, key, lang) {
