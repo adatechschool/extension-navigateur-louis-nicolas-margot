@@ -2,19 +2,15 @@
   "manifest_version": 3,
   "name": "Productivity Pet",
   "description": "Hello World",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "permissions": ["tabs", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
   "action": {
-    "default_icon": "images/cat_icon.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["main.js"]
-    }
-  ]
+    "default_icon": "images/cat_icon.png",
+    "default_popup": "index.html"
+  }
 }
