@@ -7,10 +7,9 @@
     "service_worker": "background.js",
     "type": "module"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "activeTab", "scripting"],
   "action": {
-    "default_icon": "images/cat_icon.png",
-    "default_popup": "index.html"
+    "default_icon": "images/cat_icon.png"
   },
   "content_scripts": []
 }

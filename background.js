@@ -6,6 +6,10 @@ import mcKey from './domainInfos/providers/key.js'
 import catEn from './domainInfos/categoriesLists/catEn.js'
 import catFr from './domainInfos/categoriesLists/catFr.js'
 
+import blacklist from './blacklist.js'
+
+console.log(blacklist)
+
 const categories = {
     categoriesEn: catEn.conceptSet.slice(0, 16).map(item => item.prefLabel),
     categoriesFr: parseCatFr()
@@ -26,7 +30,9 @@ function parseCatFr() {
     return filtered.map(item => item.prefLabel)
 }
 
+
 console.log(categories)
+
 
 async function getPageCategories(url, key, lang) {
     //crée un objet qui pourra faire l'appel d'API à partir de l'url qu'on lui donne
@@ -36,10 +42,7 @@ async function getPageCategories(url, key, lang) {
     console.log(cats)
     return cats
 }
-
-// define what element should be observed by the observer
-// and what types of mutations trigger the callback
-
+let tabCats
 // eslint-disable-next-line no-undef
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
@@ -48,9 +51,23 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         console.log(lang)
         let currentTabUrl = tab.url
         console.log(currentTabUrl)
-        getPageCategories(currentTabUrl, mcKey, lang)
+        tabCats = getPageCategories(currentTabUrl, mcKey, lang);
     }
 })
+
+chrome.action.onClicked.addListener((tab) => {
+    // const response =
+    //     // eslint-disable-next-line no-undef
+    //     await chrome.runtime.sendMessage({ categories: tabCats });
+    // // do something with response here, not outside the function
+    // console.log(response)
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ['displayCats.js']
+    })
+        .then(() => console.log('script'))
+});
+// eslint-disable-next-line no-undef
 
 
 
