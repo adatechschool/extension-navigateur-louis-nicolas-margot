@@ -6,10 +6,27 @@ import mcKey from './domainInfos/providers/key.js'
 import catEn from './domainInfos/categoriesLists/catEn.js'
 import catFr from './domainInfos/categoriesLists/catFr.js'
 
+
+
 const categories = {
     categoriesEn: catEn.conceptSet.slice(0, 16).map(item => item.prefLabel),
     categoriesFr: parseCatFr()
 }
+
+let goodCat = [0, 3, 4, 5, 6, 10, 12, 13];
+const goodCategories = [];
+goodCat.forEach(el => goodCategories.push(categories.categoriesEn[el]));
+goodCat.forEach(el => goodCategories.push(categories.categoriesFr[el]));
+
+console.log(goodCategories);
+
+let badCat = [1, 2, 7, 8, 9, 11, 14, 15];
+const badCategories = [];
+badCat.forEach(el => badCategories.push(categories.categoriesEn[el]));
+badCat.forEach(el => badCategories.push(categories.categoriesFr[el]));
+
+console.log(badCategories);
+
 
 function parseCatFr() {
     let arr = []
@@ -50,8 +67,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         console.log(currentTabUrl)
         getPageCategories(currentTabUrl, mcKey, lang)
     }
-})
-
-
+});
 
 
