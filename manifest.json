@@ -11,5 +11,10 @@
   "action": {
     "default_icon": "images/cat_icon.png"
   },
-  "content_scripts": []
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main.js"]
+    }
+  ]
 }

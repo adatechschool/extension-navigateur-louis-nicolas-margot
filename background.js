@@ -15,6 +15,21 @@ const categories = {
     categoriesFr: parseCatFr()
 }
 
+let goodCat = [0, 3, 4, 5, 6, 10, 12, 13];
+const goodCategories = [];
+goodCat.forEach(el => goodCategories.push(categories.categoriesEn[el]));
+goodCat.forEach(el => goodCategories.push(categories.categoriesFr[el]));
+
+console.log(goodCategories);
+
+let badCat = [1, 2, 7, 8, 9, 11, 14, 15];
+const badCategories = [];
+badCat.forEach(el => badCategories.push(categories.categoriesEn[el]));
+badCat.forEach(el => badCategories.push(categories.categoriesFr[el]));
+
+console.log(badCategories);
+
+
 function parseCatFr() {
     let arr = []
     for (let i = 1; i < 10; i++) {
