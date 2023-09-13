@@ -1,93 +1,65 @@
-//récupére tout ce qu'il faut pour faire l'appel d'api
+// classe pour la gestion des requêtes API
 import MCInfos from './domainInfos/providers/meaningCloud.js'
-// récupére ma clé personnelle d'API
+// récupére ma clé personnelle d'API ( c'est dans .gitignore donc
+// vous aurez besoin de créer votre propre fichier key.js avec votre propre clé)
 import mcKey from './domainInfos/providers/key.js'
 
-// objets js qui contiennent toutes les catégories
+// objets js qui contiennent toutes les catégories IPTC
 import catEn from './domainInfos/categoriesLists/catEn.js'
 import catFr from './domainInfos/categoriesLists/catFr.js'
 
 // liste noire de sites
 import blacklist from './blacklist.js'
 
+// classe "Catégories" : permet de réorganiser les catégories selon nos besoin et de faire des comparaisons
 import CatObj from './domainInfos/categoriesLists/catObj.js'
 
+// on se créé un object Catégories
 const Cats = new CatObj(catEn, catFr);
 
+// on lui donne les indexs des catégories "bonnes" et "mauvaises"
 let goodArr = [0, 3, 4, 5, 6, 10, 12, 13];
 let badArr = [1, 2, 7, 8, 9, 11, 14, 15];
 
+// ça va nous ranger ça bien tout seul
 Cats.setCats(goodArr, badArr)
-
 console.log(Cats)
 
-
+// fonction pour lancer l'appel d'API et récupérer les catégories du site qu'on visite
 async function getPageCategories(url, key, lang) {
-    //crée un objet qui pourra faire l'appel d'API à partir de l'url qu'on lui donne
-    let infos = new MCInfos(url, key, lang)
-    // lance l'appel d'API et attends la réponse
-    return infos.getMCInfos()
+    let infos = new MCInfos(url, key, lang)     //crée un objet à partir de la classe qu'on à importée
+    return infos.getMCInfos()     // lance l'appel d'API et attends la réponse
 }
 
-function alertMessage() {
-    alert('Nan mais ça va pas ?')
-}
-
-function niceMessage() {
-    alert("c'est bien, continue comme ça")
-}
-
-function pastopMessage() {
-    alert("Mouais...")
-}
 // lorsqu'un onglet est ouvert ou rafraichi
 // eslint-disable-next-line no-undef
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-    
-    // si il est bien chargé
-    if (changeInfo.status == 'complete') {
-        // on récupère la langue
+    if (changeInfo.status == 'complete') {    // si il est bien chargé
         // eslint-disable-next-line no-undef
-        let lang = await chrome.tabs.detectLanguage(tabId)
+        let lang = await chrome.tabs.detectLanguage(tabId)         // on récupère la langue
+        let currentTabUrl = tab.url         //on récupère l'url
 
-        //on récupère l'url
-        let currentTabUrl = tab.url
-        console.log(currentTabUrl)
-
-        chrome.scripting.executeScript({
-            target: { tabId: tabId },
-            files: ["displayCats.js"]
-        })
-
-        // si c'est sur la liste noire
-        if (blacklist.some(el => {
-
+        if (blacklist.some(el => {         // si c'est sur la liste noire
             currentTabUrl.includes(el)
         })) {
-            console.log("étape 1")
-            // envoie un message d'alerte
-            // eslint-disable-next-line no-undef
-            chrome.scripting.executeScript({
+            // eslint-disable-next-line no-undef 
+            chrome.scripting.executeScript({            // on affiche un truc pas sympa
                 target: { tabId: tabId },
-                func: alertMessage
+                files: ['?'] // ajouter le fichier js correspondant
             })
         } else {
-            console.log("étape 2")
-
-            let tabCats = await getPageCategories(currentTabUrl, mcKey, lang)
-            console.log(tabCats)
+            let tabCats = await getPageCategories(currentTabUrl, mcKey, lang) // si c'est pas sur list noire, on lance la requête API
             if (Cats.areCatsGood(tabCats, lang)) {
-                console.log("gentil")
-
-                chrome.scripting.executeScript({
+                // eslint-disable-next-line no-undef
+                chrome.scripting.executeScript({                 // si c'est good on affiche un truc sympa
                     target: { tabId: tabId },
-                    func: niceMessage
+                    files: ['?'] // ajouter le fichier js correspondant
                 })
             } else {
-                console.log("pô gentil")
-                chrome.scripting.executeScript({
+                // eslint-disable-next-line no-undef
+                chrome.scripting.executeScript({                 // si c'est bof, on affiche un truc bof
                     target: { tabId: tabId },
-                    func: pastopMessage
+                    files: ['?'] // ajouter le fichier js correspondant
                 })
             }
         }
