@@ -54,10 +54,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         let currentTabUrl = tab.url
         console.log(currentTabUrl)
 
-        chrome.scripting.executeScript({
-            target: { tabId: tabId },
-            files: ["displayCats.js"]
-        })
 
         // si c'est sur la liste noire
         if (blacklist.some(el => {
@@ -69,7 +65,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
             // eslint-disable-next-line no-undef
             chrome.scripting.executeScript({
                 target: { tabId: tabId },
-                func: alertMessage
+                files: ["displayBlackListCats.js"]
             })
         } else {
             console.log("étape 2")
@@ -81,13 +77,13 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
 
                 chrome.scripting.executeScript({
                     target: { tabId: tabId },
-                    func: niceMessage
+                    files: ["displayGoodCats.js"]
                 })
             } else {
                 console.log("pô gentil")
                 chrome.scripting.executeScript({
                     target: { tabId: tabId },
-                    func: pastopMessage
+                    files: ["displayBadCats.js"]
                 })
             }
         }
