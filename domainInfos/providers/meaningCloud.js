@@ -23,7 +23,7 @@ class MCInfos {
                 return response.json()
             })
             .then((responseJSON) => {
-                return responseJSON
+                return responseJSON.category_list
             })
     }
 }

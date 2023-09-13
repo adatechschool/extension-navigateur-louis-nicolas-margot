@@ -43,6 +43,7 @@ function pastopMessage() {
 // lorsqu'un onglet est ouvert ou rafraichi
 // eslint-disable-next-line no-undef
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
+    
     // si il est bien chargé
     if (changeInfo.status == 'complete') {
         // on récupère la langue
@@ -52,6 +53,11 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         //on récupère l'url
         let currentTabUrl = tab.url
         console.log(currentTabUrl)
+
+        chrome.scripting.executeScript({
+            target: { tabId: tabId },
+            files: ["displayCats.js"]
+        })
 
         // si c'est sur la liste noire
         if (blacklist.some(el => {
@@ -70,7 +76,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
 
             let tabCats = await getPageCategories(currentTabUrl, mcKey, lang)
             console.log(tabCats)
-            if (Cats.areCatsGood(tabCats)) {
+            if (Cats.areCatsGood(tabCats, lang)) {
                 console.log("gentil")
 
                 chrome.scripting.executeScript({

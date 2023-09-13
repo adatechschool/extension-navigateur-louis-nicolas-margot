@@ -1,38 +1,58 @@
+// en chantier total, ne marche pas
+
 class CatObj {
     constructor(catsEn, catsFr) {
-        this.en = catsEn.conceptSet.slice(0, 16).map(item => item.prefLabel);
+        this.en = catsEn.conceptSet.slice(0, 16).map(item => item.prefLabel.enUS);
         this.fr = this.parseCatFr(catsFr);
         this.goodCats
         this.badCats
     }
     setCats(goodArr, badArr) {
-        this.goodCats = Array.from(goodArr, el => this.en[el]);
-        this.goodCats.concat(Array.from(goodArr, el => this.fr[el]));
+        this.goodCatsEn = Array.from(goodArr, el => this.en[el]);
+        this.goodCatsFr = Array.from(goodArr, el => this.fr[el]);
 
-        this.badCats = Array.from(badArr, el => this.en[el]);
-        this.badCats.concat(Array.from(badArr, el => this.fr[el]));
+        this.badCatsEn = Array.from(badArr, el => this.en[el]);
+        this.badCatsFr = Array.from(badArr, el => this.fr[el]);
     }
 
-    areCatsGood(tabCats) {
-        let good = 0
-        let bad = 0
-        console.log(typeof (tabCats.category_list))
-        console.log(tabCats.category_list)
+    compare(tabCats, catsToCompare) {
+        console.log(tabCats)
 
-        this.goodCats.forEach(cat => {
-            if (tabCats.category_list.some(el => {
-                console.log(el.label + ' vs ' + cat.enUS)
-                el.label.includes(cat.enUS)
+        let score = 0;
+
+        catsToCompare[0].forEach(cat => {
+            if (tabCats.some(el => {
+                el.label.includes(cat) 
             })) {
-                good++
-            } else { bad++ }
+                score++
+            }
         })
 
-        if (good >= bad) {
-            console.log('good: ' + good + 'bad: ' + bad)
+        catsToCompare[1].forEach(cat => {
+            if (tabCats.some(el => {
+                el.label.includes(cat)
+            })) {
+                score--
+                console.log(score)
+            }
+        })
+        return score
+    }
+
+    areCatsGood(tabCats, lang) {
+        let scoring = () => {
+            if (lang == 'fr') {
+                return this.compare(tabCats, [this.goodCatsFr, this.badCatsFr])
+            }
+            else { return this.compare(tabCats, [this.goodCatsEn, this.badCatsEn]) }
+        }
+
+        let score = scoring()
+        if (score > 0) {
+            console.log('good: ' + score)
             return true
         } else {
-            console.log('good: ' + good + 'bad: ' + bad)
+            console.log('bad: ' + score)
             return false
         }
     }
@@ -51,7 +71,7 @@ class CatObj {
             arr.some(el => item.qcode.includes(el))
         )
         console.log(filtered)
-        return filtered.map(item => item.prefLabel)
+        return filtered.map(item => item.prefLabel.fr)
     }
 }
 

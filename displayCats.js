@@ -1,4 +1,5 @@
-let p = document.createElement('p')
-p.innerText = 'salut'
-p.setAttribute('style', 'font-size: 100px; position: fixed; top: 40%; left: 40%;')
-document.body.appendChild(p)
+let img = document.createElement('img')
+img.setAttribute('src', '/home/louis/Documents/Projets/extension-navigateur-louis-nicolas-margot/images/cat_icon.png')
+img.id = 'chats'
+img.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 100%;')
+document.body.appendChild(img)
