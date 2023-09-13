@@ -87,7 +87,7 @@ input:checked + .slider:before {
 }
 
 .catPicture img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 /* Fin du style de l'image */

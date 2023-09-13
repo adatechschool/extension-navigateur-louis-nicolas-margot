@@ -38,16 +38,15 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
         // eslint-disable-next-line no-undef
         let lang = await chrome.tabs.detectLanguage(tabId)         // on récupère la langue
         let currentTabUrl = tab.url         //on récupère l'url
-
-        if (blacklist.some(el => {         // si c'est sur la liste noire
-            currentTabUrl.includes(el)
-        })) {
+        console.log(currentTabUrl)
+        if (blacklist.some(el => { currentTabUrl.includes(el) }) == true) {
             // eslint-disable-next-line no-undef 
             chrome.scripting.executeScript({            // on affiche un truc pas sympa
                 target: { tabId: tabId },
                 files: ["displayBlackListCats.js"]
             })
         } else {
+
             let tabCats = await getPageCategories(currentTabUrl, mcKey, lang) // si c'est pas sur list noire, on lance la requête API
 
             if (tabCats != undefined) {
