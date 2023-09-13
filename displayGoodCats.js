@@ -1,6 +1,8 @@
-let chat2 = document.createElement('img')
-chat2.setAttribute('src', 'https://imagizer.imageshack.com/img923/1725/lyJv6k.png')
-chat2.id = 'chat2'
-chat2.setAttribute('style', 'position: fixed; top: 40%; left: 40%; width: 300px;, height: 200px;')
-chat2.innerHTML = '<html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Display cats in the browser</title></head><body><img id="chat2"></img></body></html>'
+let chat2 = document.createElement('div')
+chat2.id = 'box2'
+chat2.setAttribute('style', 'position: fixed; top: 30%; left: 30%; width: 50%;, height: 50%; z-index: 999;  ')
+chat2.innerHTML = '<img id="chat2" src="https://imagizer.imageshack.com/img923/4148/xpx2kI.png"></img><p style="font-size: 100px;">JE SUIS GENTIL</p>'
 document.body.appendChild(chat2)
+setTimeout(() => {
+    document.body.removeChild(chat2)
+}, 3000);
