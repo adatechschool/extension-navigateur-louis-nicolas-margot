@@ -45,7 +45,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
             // eslint-disable-next-line no-undef 
             chrome.scripting.executeScript({            // on affiche un truc pas sympa
                 target: { tabId: tabId },
-                files: ['?'] // ajouter le fichier js correspondant
+                files: ["displayBlackListCats.js"]
             })
         } else {
             let tabCats = await getPageCategories(currentTabUrl, mcKey, lang) // si c'est pas sur list noire, on lance la requête API
@@ -55,13 +55,13 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                     // eslint-disable-next-line no-undef
                     chrome.scripting.executeScript({                 // si c'est good on affiche un truc sympa
                         target: { tabId: tabId },
-                        files: ['?'] // ajouter le fichier js correspondant
+                        files: ["displayGoodCats.js"]
                     })
                 } else {
                     // eslint-disable-next-line no-undef
                     chrome.scripting.executeScript({                 // si c'est bof, on affiche un truc bof
                         target: { tabId: tabId },
-                        files: ['?'] // ajouter le fichier js correspondant
+                        files: ["displayBadCats.js"]
                     })
                 }
             }
