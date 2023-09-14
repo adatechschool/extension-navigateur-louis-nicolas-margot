@@ -1,8 +1,12 @@
-let happyCat = document.createElement('div')
-happyCat.id = 'catBoxHappy'
-happyCat.setAttribute('style', 'display: flex; position: fixed; top: 5vh; right: 3vw; width: 300px;, height: 450px; z-index: 999; flex-direction: column; justify-content: center; align-items: center; border-radius: 10px; background-color: white; box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.36); padding: 16px; box-sizing: border-box; border: 1px solid black; gap: 8px;')
-happyCat.innerHTML = '<img id="chat2" src="https://imagizer.imageshack.com/img922/8920/rNrFhN.png" style="width: 150px;"></img><p style="font-size: 32px;">Sympa !</p>'
-document.body.appendChild(happyCat)
+let happyCatBox = document.createElement('div')
+happyCatBox.id = 'catBoxHappy'
+happyCatBox.setAttribute('class', 'catBox in')
+happyCatBox.innerHTML = '<img id="happyCat" src="https://imagizer.imageshack.com/img922/8920/rNrFhN.png"></img><p class="catPhrase">Sympa !</p>'
+document.body.appendChild(happyCatBox)
 setTimeout(() => {
-    document.body.removeChild(happyCat)
-}, 5000);
+    happyCatBox.classList.toggle('in')
+    happyCatBox.classList.toggle('out')
+}, 3000);
+setTimeout(() => {
+    document.body.removeChild(happyCatBox)
+}, 4000)
